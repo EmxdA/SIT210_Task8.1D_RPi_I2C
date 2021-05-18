@@ -4,11 +4,23 @@
 import I2C_LCD_driver
 from time import *
 
+
 mylcddisplay = I2C_LCD_driver.lcd()
+lightsense = 1300
+mylcddisplay.lcd_display_string(lightsense, 1)
 
-mylcddisplay.lcd_display_string("This is my 8.1D", 1)
-mylcddisplay.lcd_display_string("By Emad Altamimi", 2)
-
+while lightsense > 0:
+   if lightsense > 1000:
+      mylcddisplay.lcd_display_string("Too Bright", 1)
+   elif lightsense > 750 and <= 1000:
+      mylcddisplay.lcd_display_string("Bright", 1)
+   elif lightsense > 500 and <= 750:
+      mylcddisplay.lcd_display_string("normal", 1)
+   elif lightsense > 200 and <= 500:
+      mylcddisplay.lcd_display_string("dark", 1)
+   else:
+      mylcddisplay.lcd_display_string("very dark", 1)
+   lightsense = lightsense - 83
 # Library to install (Not my code). NOTE: CHANGE LINE 22 TO YOUR SPECIFIED ADDRESS IN THE RPI TERMINAL 
 
 #i2c bus (0 -- original Pi, 1 -- Rev 2 Pi)
