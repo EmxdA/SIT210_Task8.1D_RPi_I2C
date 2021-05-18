@@ -12,11 +12,11 @@ mylcddisplay.lcd_display_string(lightsense, 1)
 while lightsense > 0:
    if lightsense > 1000:
       mylcddisplay.lcd_display_string("Too Bright", 1)
-   elif lightsense > 750 and <= 1000:
+   elif lightsense > 750 and lightsense <= 1000:
       mylcddisplay.lcd_display_string("Bright", 1)
-   elif lightsense > 500 and <= 750:
+   elif lightsense > 500 and lightsense <= 750:
       mylcddisplay.lcd_display_string("normal", 1)
-   elif lightsense > 200 and <= 500:
+   elif lightsense > 200 and lightsense <= 500:
       mylcddisplay.lcd_display_string("dark", 1)
    else:
       mylcddisplay.lcd_display_string("very dark", 1)
